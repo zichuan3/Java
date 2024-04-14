@@ -1,5 +1,7 @@
 <%@ page import="pojo.Userinfo" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="pojo.Goods" %>
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
@@ -14,10 +16,20 @@
 </head>
 <body>
 <%
-    List<Userinfo> list = (List<Userinfo>) request.getAttribute("list");
+    Map map = (Map) request.getAttribute("map");
+    List<Goods> list = (List<Goods>) map.get("list");
 %>
-<%for(Userinfo userInfo:list){%>
-<%=userInfo%><a href="user.do?p=delbyusername&username=<%=userInfo.getUsername()%>">删除</a><br>
+<%
+    for(Goods goods:list){
+%>
+<%=goods.getGoodspic()%>
+<%=goods.getGoodsid()%>
+
+
 <%}%>
+<a href="goods.do?p=getpage&page=1&size=<%=map.get("size")%>">首页</a>
+<a href="goods.do?p=getpage&page=<%=(int)map.get("page")==1?(int)map.get("page"):(int)map.get("page")-1%>&size=<%=map.get("size")%>">上一页</a>
+<a href="goods.do?p=getpage&page=<%=map.get("page")==map.get("pagecount")?(int)map.get("page"):(int)map.get("page")+1%>&size=<%=map.get("size")%>">下一页</a>
+<a href="goods.do?p=getpage&page=<%=(int)map.get("pagecount")%>&size=<%=map.get("size")%>">尾页</a>
 </body>
 </html>

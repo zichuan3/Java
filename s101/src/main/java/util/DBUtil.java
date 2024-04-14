@@ -99,7 +99,21 @@ public class DBUtil {
         }
         return list;
     }
-
+    public static int uiniquecount(String sql, Object... p){
+        int count = 0;
+        Connection conn = getConnection();
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            count = rs.getInt(1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            release(conn);
+        }
+        return count;
+    }
     public static void main(String[] args) {
         List<Userinfo> list = DBUtil.query("select username , password from userinfo", Userinfo.class);
         for (Userinfo userInfo : list) {
