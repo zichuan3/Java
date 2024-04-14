@@ -1,0 +1,314 @@
+#s2 {
+    justify-content: flex-start;
+}
+.prev {
+    position: absolute;
+    top: 300px;
+    left: 550px;
+    width: 20px;
+    height: 50px;
+    transform: translateY(-50%);
+}
+button {
+    width: 28px;
+    height: 28px;
+    appearance: none;
+    border: none;
+    background: rgba(231, 226, 226, 0.5);
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.next {
+    position: absolute;
+    width: 20px;
+    height: 50px;
+    top: 300px;
+    right: 50px;
+    transform: translateY(-50%);
+}
+#s3 {
+    justify-content: flex-end;
+}
+#s6{
+    width: 1600px;
+    height: 74px;
+    margin: auto;
+    display: flex;
+    position: relative;
+    background-color: white;
+    z-index: 1;
+}
+#s6 div img{
+    position: relative;
+    width: 103px;
+    height: 74px;
+    left: 100px;
+}
+#s7{
+    position: relative;
+    display: flex;
+    left: 180px;
+}
+#s7 div{
+    margin-left: 40px;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+#s1, #s2, #s3 {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#s1 {
+    background-color: black;
+    font-size: 14px;
+    pointer-events: auto;
+    justify-content: space-between;
+}
+
+ul li a:hover {
+    color: white;
+}
+
+li {
+    line-height: 36px;
+    color: white;
+    list-style: none;
+    padding: 0 8px;
+}
+
+a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+}
+
+#s4 {
+    top: 24px;
+    bottom: 24px;
+    height: 32px;
+    background-color: rgba(0, 0, 0, 0);
+    justify-content: center;
+    flex: 1 1 0%;
+    display: flex;
+    position: relative;
+}
+#s4>div{
+    padding-left: 15px;
+}
+#s4>div>div {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 10px;
+    height: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+#s4>div div.active{
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+}
+
+.slider {
+    display: flex;
+    margin-left: 300px;
+    overflow: hidden; /*超出部分进行隐藏*/
+    max-width: 1330px;
+    max-height: 750px;
+}
+
+.q1 {
+    display: flex;
+}
+
+.q3 {
+    height: 440px;
+    position: relative;
+    left: 30px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 36px;
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.q2 {
+    position: relative;
+    left: 45px;
+    font-size: 20px;
+    flex: 1 1 0%;
+    width: 200px;
+    height: 30px;
+    flex-direction: row;
+    pointer-events: auto;
+    justify-content: center;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#s5 {
+    background-color: rgb(0, 0, 0, 0);
+    padding-top: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    pointer-events: auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 190px;
+    width: 1200px;
+}
+
+#s5 div {
+    width: 198px;
+    height: 95px;
+    pointer-events: auto;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+}
+
+#s5 div img {
+    padding-top: 15px;
+    padding-left: 65px;
+    padding-right: 85px;
+    max-width: 48px;
+    max-height: 48px;
+}
+
+.slides {
+    display: flex; /*弹性布局，允许元素在一行或多行上进行排列*/
+    animation: pi 10s infinite; /*a的动画效果持续10s，且无限循环*/
+}
+
+.slides img {
+    max-width: 100%;
+}
+
+.s6 {
+    padding-top: 50px;
+    font-size: 25px;
+    padding-left: 100px;
+}
+
+#d1, #d2 {
+    height: 700px;
+}
+
+.s7 {
+    background-color: rgb(0, 0, 0, 0);
+    padding-top: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    pointer-events: auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 350px;
+    width: 1500px;
+}
+
+.s7 div {
+    margin-left: 30px;
+    width: 320px;
+    height: 350px;
+    pointer-events: auto;
+    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+}
+
+.s7 div:hover {
+    -webkit-box-shadow: #ccc 0px 10px 10px;
+    -moz-box-shadow: #ccc 0px 10px 10px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 36px;
+}
+
+.s7 div img {
+    padding-left: 20px;
+    width: 290px;
+    height: 270px;
+}
+
+#d3 {
+    width: 1400px;
+    height: 102px;
+    background-color: rgba(0, 0, 0, 0);
+    pointer-events: auto;
+    display: flex;
+    margin: auto;
+    position: relative;
+    left: 120px;
+    top: 30px;
+}
+
+#d3 div {
+    width: 209px;
+    height: 24px;
+    margin-left: 80px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#d3 div img {
+    max-height: 24px;
+    max-width: 24px;
+}
+
+.s8 {
+    background-color: rgb(189 192 195 / 25%);
+}
+
+#a1 {
+    width: 100%;
+    height: 100px;
+}
+#a2{
+    width: 1200px;
+    height: 460px;
+    margin-left: 160px;
+}
+#a3{
+    width: 925px;
+    height: 213px;
+    display: flex;
+
+}
+#a3 dl dt{
+    position: relative;
+    font-size: 14px;
+    color: black;
+    left: 8px;
+}
+#a3 dl dd ol li{
+    color: rgba(0,0,0,0.5);
+    display: list-item;
+    font-size: 12px;
+    pointer-events: auto;
+    cursor: pointer;
+}
+#a3 dl dd ol {
+    position: relative;
+    top: 20px;
+}
+#a3 dl{
+    position: relative;
+    top: 60px;
+    padding-left: 80px;
+    width: 120px;
+}
+
+#a4{
+    width: 248px;
+    height: 213px;
+}
+* {
+    margin: 0;
+    padding: 0;
+}

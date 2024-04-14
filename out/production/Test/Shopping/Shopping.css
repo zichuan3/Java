@@ -1,0 +1,27 @@
+td {
+    text-align: center;
+}
+div{
+    text-align: right;
+    width: 700px;
+    height: 30px;
+}
+.count-input{
+    width: 50px;
+}
+table {
+    width: 800px;
+    height: 300px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td {
+    border: 1px solid black;
+}
+
+img {
+    width: 160px;
+    height: 130px;
+}

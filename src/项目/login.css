@@ -1,0 +1,54 @@
+#q1{
+    width: 1707px;
+    height: 48px;
+    background-color: #d1d1d1;
+    display: flex;
+}
+#q1 img{
+    width: 106px;
+    height: 24px;
+    margin-left: 320px;
+    margin-top: 10px;
+}
+#q1 div{
+    position: relative;
+    margin-left: 80px;
+    font-size: 20px;
+    top: 10px;
+}
+#q2{
+    width: 1707px;
+    height: 221px;
+    position: relative;
+    left: 700px;
+    top: 150px;
+    font-size: 40px;
+}
+#q3{
+    display: block;
+    position: relative;
+    margin-top: 100px;
+    margin-left: 600px;
+}
+#q3 form input{
+    width: 358px;
+    height: 48px;
+    text-align: center;
+}
+#q3 form input[type="password"]{
+    margin-left: 11px;
+}
+#q3 form input[type="button"]{
+    margin-left: 51px;
+    margin-top: 50px;
+}
+/*#q3 button{*/
+/*    position: relative;*/
+/*    top: 100px;*/
+/*    width: 360px;*/
+/*    height: 48px;*/
+/*}*/
+*{
+    margin: 0;
+    padding: 0;
+}

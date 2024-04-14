@@ -1,0 +1,140 @@
+#s2{
+    justify-content: flex-start;
+}
+#s3{
+    justify-content: flex-end;
+}
+#s1 ,#s2 ,#s3{
+    display: flex;
+    flex-wrap: nowrap;
+}
+#s1{
+    background-color: black;
+    font-size: 14px;
+    pointer-events: auto;
+    justify-content: space-between;
+}
+ul li a:hover{
+    color: white;
+}
+li{
+    line-height: 36px;
+    color: white;
+    list-style: none;
+    padding: 0 8px;
+}
+a{
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+}
+#s4{
+    top: 24px;
+    bottom: 24px;
+    height: 32px;
+    background-color: rgba(0, 0, 0, 0);
+    justify-content: center;
+    flex: 1 1 0%;
+    display: flex;
+    position: relative;
+}
+#s4 div div{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+.slider {
+    display: flex;
+    margin-left: 300px;
+    overflow: hidden;/*超出部分进行隐藏*/
+    max-width: 1330px;
+    max-height: 750px;
+}
+.q1{
+    display: flex;
+}
+.q3{
+    height: 440px;
+    position: relative;
+    left: 30px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 36px;
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.q2{
+    position: relative;
+    left: 45px;
+    font-size: 20px;
+    flex: 1 1 0%;
+    width: 200px;
+    height: 30px;
+    flex-direction: row;
+    pointer-events: auto;
+    justify-content: center;
+    cursor: pointer;
+    padding: 5px;
+}
+#s5{
+    background-color: rgb(0,0,0,0);
+    padding-top: 20px;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    pointer-events: auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 190px;
+    width: 1200px;
+}
+#s5 div {
+    width: 198px;
+    height: 95px;
+    border: 1px solid red;
+    pointer-events: auto;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+}
+#s5 div img{
+    padding-top: 15px;
+    padding-left: 65px;
+    padding-right: 85px;
+    max-width: 48px;
+    max-height: 48px;
+}
+.slides {
+    display: flex;/*弹性布局，允许元素在一行或多行上进行排列*/
+    animation: pi 10s infinite;/*a的动画效果持续10s，且无限循环*/
+}
+
+.slides img {
+    max-width: 100%;
+}
+
+@keyframes pi {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-1300px);
+    }
+    50% {
+        transform: translateX(-2600px);
+    }
+    75% {
+        transform: translateX(-3900px);
+    }
+    100% {
+        transform: translateX(-5200px);
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+}

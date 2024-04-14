@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="hh" style="width: 300px;height: 300px;border: 1px solid red">
+
+</div>
+<button onclick="dingshi()">点击</button>
+</body>
+<script>
+    var t = 0;
+    function dingshi() {
+        t = setInterval(suoxiao, 100);
+    }
+
+    function suoxiao() {
+        var item = document.getElementsByClassName("hh")[0]
+        item.style.width = (parseInt(item.style.width) - 10) + "px"
+        item.style.height = (parseInt(item.style.height) - 10) + "px"
+        if (parseInt(item.style.height) <= 0) {
+            item.remove();
+            clearInterval(t);
+        }
+    }
+</script>
+</html>
