@@ -15,12 +15,13 @@ function cancelAll() {
 }
 
 function addRow(a) {
-    smallCount(a);
     a.parentNode.childNodes[3].value = a.parentNode.childNodes[3].value * 1 + 1;
+    smallCount(a);
+    bigCount();
 }
 
 function delRow(a) {
-    smallCount(a);
+
     if (a.parentNode.childNodes[3].value == 1) {
         if (confirm("是否删除")) {
             a.parentNode.parentNode.remove()
@@ -28,11 +29,13 @@ function delRow(a) {
         return
     }
     a.parentNode.childNodes[3].value = a.parentNode.childNodes[3].value * 1 - 1;
+    smallCount(a);
+    bigCount();
 }
 
 function smallCount(a) {
     var price = a.parentNode.parentNode.childNodes[9].innerText;
-    var count = a.parentNode.childNodes[3].value * 1 + 1
+    var count = a.parentNode.childNodes[3].value * 1 ;
     a.parentNode.parentNode.childNodes[13].innerText = price * count;
 }
 function bigCount(){
