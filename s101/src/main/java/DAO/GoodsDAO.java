@@ -21,4 +21,13 @@ public class GoodsDAO {
         List<Goods> list = DBUtil.query(sql,Goods.class,(page-1)*size,size);
         return list;
     }
+    public Goods findbyid(String goodsid) {
+        String sql = "select goodsid , goodsname , goodspic , goodsdesc , goodsprice ,goodscount from goods where goodsid = ? ";
+        List<Goods> list = DBUtil.query(sql , Goods.class , goodsid );
+        if(list.size()==0){
+            return null;
+        }
+        return list.get(0);
+    }
+
 }
