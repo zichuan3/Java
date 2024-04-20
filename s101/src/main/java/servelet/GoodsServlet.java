@@ -72,20 +72,17 @@ public class GoodsServlet extends HttpServlet {
         String pageString = request.getParameter("page");
         if (pageString != null && pageString.trim().length() > 0) {
             page = Integer.parseInt(pageString);
-//            System.out.println("page!=null,page="+page);
         }
         String sizeString = request.getParameter("size");
         if (sizeString != null && sizeString.trim().length() > 0) {
             size = Integer.parseInt(sizeString);
         }
         if (page < 1) {
-//            System.out.println("page<1,当前页码为1");
             page = 1;
         }
         int count = goodsDAO.getcount();
         int pagecount = count % size == 0 ? count / size : count / size + 1;
         if (page > pagecount) {
-//            System.out.println("page="+pagecount);
             page = pagecount;
         }
         List<Goods> list = goodsDAO.fenye(page, size);
