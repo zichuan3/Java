@@ -22,10 +22,10 @@
   </tr>
   <c:forEach items="${map}" var="m" >
     <tr>
-      <td>${m.key.goodsid}</td>
-      <td>${m.key.goodsname}</td>
-      <td>${m.value}</td>
-      <td>${m.key.goodsprice}</td>
+      <td>${m.value.goodsid}</td>
+      <td>${m.value.goodsname}</td>
+      <td>${m.value.goodscount}</td>
+      <td>${m.value.goodsprice}</td>
       <td>
         <a>删除</a>
       </td>
