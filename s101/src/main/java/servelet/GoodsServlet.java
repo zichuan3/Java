@@ -28,7 +28,30 @@ public class GoodsServlet extends HttpServlet {
             addCar(request, response);
         } else if ("findbyid".equals(p)) {
             findbyid(request, response);
+        }else if ("del".equals(p)||"add1".equals(p)||"minus".equals(p)){
+            editbyid(request,response);
         }
+    }
+
+    private void editbyid(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String controls = request.getParameter("p");
+        String goodsid = request.getParameter("id");
+        Map<Integer,Goods> map= (Map<Integer,Goods>) request.getSession().getAttribute("map");
+        Goods goods = map.get(Integer.parseInt(goodsid));
+        if ("del".equals(controls)){
+            map.remove(Integer.parseInt(goodsid));
+        }else if ("add1".equals(controls)){
+            int prenum = goods.getGoodscount();
+            goods.setGoodscount(prenum+1);
+        }else if ("minus".equals(controls)){
+            int prenum = goods.getGoodscount();
+            if (prenum==1){
+                map.remove(Integer.parseInt(goodsid));
+            }else
+                goods.setGoodscount(prenum-1);
+        }
+        request.getSession().setAttribute("map",map);
+        response.sendRedirect("showCar.jsp");
     }
 
     private void findbyid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
