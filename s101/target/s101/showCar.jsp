@@ -27,7 +27,12 @@
       <td>${m.value.goodscount}</td>
       <td>${m.value.goodsprice}</td>
       <td>
-        <a>删除</a>
+        <a href="goods.do?p=del&id=${m.value.goodsid}" onclick="function dele(a) {
+          a.parentNode.parentNode.remove()
+        }
+        dele(this)">删除</a>
+        <a href="goods.do?p=add1&id=${m.value.goodsid}">加一</a>
+        <a href="goods.do?p=minus&id=${m.value.goodsid}">减一</a>
       </td>
     </tr>
   </c:forEach>
