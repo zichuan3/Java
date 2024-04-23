@@ -1,6 +1,8 @@
 package servelet;
+
 import DAO.UserDao;
 import pojo.Userinfo;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,18 +22,30 @@ public class UserServlet extends HttpServlet {
             doFindAll(request, response);
         } else if ("delbyusername".equals(method)) {
             doDelByUsername(request, response);
-        }else if ("login".equals(method)){
-            doLogin(request,response);
-        }else if ("register".equals(method)){
-            doRegister(request,response);
+        } else if ("login".equals(method)) {
+            doLogin(request, response);
+        } else if ("register".equals(method)) {
+            doRegister(request, response);
+        } else if ("checkusername".equals(method)) {
+            doCheckUsername(request, response);
         }
+    }
+
+    private void doCheckUsername(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username = request.getParameter("username");
+        if ("sunjob".equals(username)) {
+            response.getWriter().println("false");
+        } else {
+            response.getWriter().println("true");
+        }
+
     }
 
 
     private void doRegister(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        userDao.register(username,password);
+        userDao.register(username, password);
         response.sendRedirect("index.jsp");
     }
 
@@ -39,11 +53,11 @@ public class UserServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Userinfo userinfo = userDao.login(username, password);
-        if (userinfo == null){
+        if (userinfo == null) {
             response.sendRedirect("login.jsp");
-        }else {
-            request.getSession().setAttribute("userinfo",userinfo);
-            request.getRequestDispatcher("main.jsp").forward(request,response);
+        } else {
+            request.getSession().setAttribute("userinfo", userinfo);
+            request.getRequestDispatcher("main.jsp").forward(request, response);
         }
 
     }
