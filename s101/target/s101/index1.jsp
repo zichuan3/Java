@@ -17,7 +17,6 @@
 </body>
 </html>
 <script>
-
     function checkusername(txt){
         var username = txt.value ;
         var request = new XMLHttpRequest();//通过js创建一个请求对象
@@ -36,5 +35,4 @@
             }
         }
     }
-
 </script>
