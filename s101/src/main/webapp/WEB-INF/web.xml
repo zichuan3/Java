@@ -4,4 +4,20 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <!--
+  过滤器，对部分的请求进行处理之后再到serlvet
+  -->
+  <filter>
+    <filter-name>ChineseFilter</filter-name>
+    <filter-class>com.filter.ChineseFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ChineseFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+    <!--
+          /index.jsp  / 文件名   只针对某一个请求
+          *.jsp   某一类文件
+          /*
+       -->
+  </filter-mapping>
 </web-app>

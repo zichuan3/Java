@@ -26,3 +26,16 @@ function login() {
         return;
     }
 }
+document.getElementById("q5").addEventListener("click",function (){
+    let image_eye = document.getElementById("q5");
+    let input_password = document.getElementsByClassName("password")[0];
+    if (image_eye.classList.contains("icon-buchakan")){
+        input_password.type = "text";
+        image_eye.classList.remove("icon-buchakan");
+        image_eye.classList.add("icon-chakan");
+    }else {
+        input_password.type = "password";
+        image_eye.classList.remove("icon-chakan");
+        image_eye.classList.add("icon-buchakan");
+    }
+});

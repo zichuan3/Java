@@ -37,11 +37,11 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-        <dependency><!--standard标签库-->
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-            <version>1.1.2</version>
-        </dependency>
+<!--        <dependency>&lt;!&ndash;standard标签库&ndash;&gt;-->
+<!--            <groupId>taglibs</groupId>-->
+<!--            <artifactId>standard</artifactId>-->
+<!--            <version>1.1.2</version>-->
+<!--        </dependency>-->
     </dependencies>
     <build>
         <finalName>s101</finalName>
