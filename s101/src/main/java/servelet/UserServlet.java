@@ -28,6 +28,23 @@ public class UserServlet extends HttpServlet {
             doRegister(request, response);
         } else if ("checkusername".equals(method)) {
             doCheckUsername(request, response);
+        } else if ("collection".equals(method)) {
+            doCollection(request, response);
+        }
+    }
+
+    private void doCollection(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String goodsid = request.getParameter("goodsid");
+        Userinfo userinfo = (Userinfo) request.getSession().getAttribute("userinfo");
+        System.out.println("进入docollection");
+        if (userinfo == null) {
+            request.getSession().setAttribute("goodsid", goodsid);
+            System.out.println("没有登录");
+            String ret = "{\"goodsid\":\"" + goodsid + "\"}";
+            System.out.println(ret);
+            response.getWriter().println(ret);
+        } else {
+            System.out.println("加入数据库");
         }
     }
 
@@ -55,11 +72,14 @@ public class UserServlet extends HttpServlet {
         Userinfo userinfo = userDao.login(username, password);
         if (userinfo == null) {
             response.sendRedirect("login.jsp");
-        } else {
-            request.getSession().setAttribute("userinfo", userinfo);
-            request.getRequestDispatcher("main.jsp").forward(request, response);
         }
-
+        request.getSession().setAttribute("userinfo", userinfo);
+        if (request.getSession().getAttribute("goodsid") != null) {
+            System.out.println("验证当前是需要返回到原来的页面");
+            response.sendRedirect("goods.do?p=findbyid&goodsid=" + request.getSession().getAttribute("goodsid"));
+            return;
+        }
+        request.getRequestDispatcher("main.jsp").forward(request, response);
     }
 
     private void doFindAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

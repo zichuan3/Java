@@ -1,5 +1,7 @@
 package util;
+
 import pojo.Userinfo;
+
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.ArrayList;
@@ -45,29 +47,12 @@ public class DBUtil {
             }
             n = ps.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } finally {
             release(conn);
         }
         return n;
     }
-
-//    public static ResultSet query(String sql, Object... p) {
-//        Connection conn = getConnection();
-//        ResultSet rs = null;
-//        try {
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            if (p != null) {
-//                for (int i = 0; i < p.length; i++) {
-//                    ps.setObject(i + 1, p[i]);
-//                }
-//            }
-//            rs = ps.executeQuery();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return rs;
-//    }
 
     public static List query(String sql, Class c, Object... p) {
         List<Object> list = new ArrayList();
@@ -99,7 +84,8 @@ public class DBUtil {
         }
         return list;
     }
-    public static int uiniquecount(String sql, Object... p){
+
+    public static int uiniquecount(String sql, Object... p) {
         int count = 0;
         Connection conn = getConnection();
         try {
@@ -114,6 +100,7 @@ public class DBUtil {
         }
         return count;
     }
+
     public static void main(String[] args) {
         List<Userinfo> list = DBUtil.query("select username , password from userinfo", Userinfo.class);
         for (Userinfo userInfo : list) {
