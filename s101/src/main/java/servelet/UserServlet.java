@@ -36,15 +36,12 @@ public class UserServlet extends HttpServlet {
     private void doCollection(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String goodsid = request.getParameter("goodsid");
         Userinfo userinfo = (Userinfo) request.getSession().getAttribute("userinfo");
-        System.out.println("进入docollection");
         if (userinfo == null) {
             request.getSession().setAttribute("goodsid", goodsid);
-            System.out.println("没有登录");
             String ret = "{\"goodsid\":\"" + goodsid + "\"}";
-            System.out.println(ret);
             response.getWriter().println(ret);
         } else {
-            System.out.println("加入数据库");
+            userDao.collection_goods(userinfo.getUsername(), Integer.parseInt(goodsid));
         }
     }
 

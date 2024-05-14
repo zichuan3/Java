@@ -27,4 +27,9 @@ public class UserDao {
         int n = DBUtil.zsg(sql, username, password);
         return n;
     }
+    public int collection_goods(String username,int goodsid){
+        String sql = "insert into user_collection(username,goodsid) values(?,?)";
+        int n = DBUtil.zsg(sql, username, goodsid);
+        return n;
+    }
 }

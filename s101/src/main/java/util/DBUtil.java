@@ -90,6 +90,11 @@ public class DBUtil {
         Connection conn = getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
+            if (p != null) {
+                for (int i = 0; i < p.length; i++) {
+                    ps.setObject(i + 1, p[i]);
+                }
+            }
             ResultSet rs = ps.executeQuery();
             rs.next();
             count = rs.getInt(1);
