@@ -1,7 +1,7 @@
 package servelet;
 
 import javax.imageio.ImageIO;
-import javax.servlet.ServletException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,8 +14,15 @@ import java.util.Random;
 
 @WebServlet("/image.do")
 public class ImageServlet extends HttpServlet {
+    static String code;
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        if (request.getParameter("x")!=null)
+            doProduce(request,response);
+        else
+            doVerify(request,response);
+    }
+    private void doProduce(HttpServletRequest request, HttpServletResponse response) throws IOException {
         StringBuffer sb = new StringBuffer();
         String s = "abcdefghijklmnopqrstuvwxyz";
         Random random = new Random();
@@ -24,7 +31,8 @@ public class ImageServlet extends HttpServlet {
             char ch = s.charAt(index);
             sb.append(ch);
         }
-        String code = sb.toString();
+        code = sb.toString();
+        System.out.println(code);
         BufferedImage bufferedImage = new BufferedImage(100, 40, BufferedImage.TYPE_INT_RGB);
         Graphics graphics = bufferedImage.getGraphics();
         graphics.setColor(Color.LIGHT_GRAY);
@@ -41,4 +49,15 @@ public class ImageServlet extends HttpServlet {
         ImageIO.write(bufferedImage, "jpg", os);
         os.close();
     }
+    private void doVerify(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String clientCode = request.getParameter("captcha");
+        System.out.println("clientcode:::"+clientCode);
+        response.setContentType("application/json; charset=UTF-8");
+        if (clientCode.equals(code)){
+            response.getWriter().println("{\"success\":true}");
+        }else
+            response.getWriter().println("{\"success\":false, \"message\":\"验证码错误\",\"error\":\"thisiserror\"}");
+
+    }
+
 }

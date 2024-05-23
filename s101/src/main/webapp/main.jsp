@@ -1,4 +1,3 @@
-<%@ page import="pojo.Userinfo" %>
 <%@ page import="java.util.List" %>
 <%@ page import="pojo.Goods" %><%--
   Created by IntelliJ IDEA.

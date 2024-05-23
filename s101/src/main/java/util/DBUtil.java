@@ -85,7 +85,7 @@ public class DBUtil {
         return list;
     }
 
-    public static int uiniquecount(String sql, Object... p) {
+    public static int uniquecount(String sql, Object... p) {
         int count = 0;
         Connection conn = getConnection();
         try {
@@ -104,12 +104,5 @@ public class DBUtil {
             release(conn);
         }
         return count;
-    }
-
-    public static void main(String[] args) {
-        List<Userinfo> list = DBUtil.query("select username , password from userinfo", Userinfo.class);
-        for (Userinfo userInfo : list) {
-            System.out.println(userInfo);
-        }
     }
 }

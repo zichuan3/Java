@@ -31,7 +31,7 @@ public class GoodsDAO {
             sql = sql + " and goodsprice <= ? ";
             values.add(top);
         }
-        int count = DBUtil.uiniquecount(sql, values.toArray());
+        int count = DBUtil.uniquecount(sql, values.toArray());
         return count;
     }
 
